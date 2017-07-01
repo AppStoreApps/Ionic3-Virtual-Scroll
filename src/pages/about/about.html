@@ -1,11 +1,29 @@
+<!-- GOOD example of recycling DOM elements -->
+
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Virtual Scroll
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+  <ion-list [virtualScroll]="items">
+
+    <ion-item *virtualItem="let item">
+      <ion-avatar item-left>
+        <!-- ion-img instead of img to avoid unnecessary HTTP requests -->
+        <ion-img [src]="item.avatarUrl"></ion-img>
+      </ion-avatar>
+
+      <h2>{{item.title}}</h2>
+
+      <p>{{item.body}}</p>
+
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>
